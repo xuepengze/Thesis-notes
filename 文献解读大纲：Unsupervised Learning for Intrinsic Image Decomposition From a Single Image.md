@@ -72,11 +72,11 @@ $$
        
        Retinex算法：该算法假定大的图像梯度与反射率的变化相对应，而较小的梯度与阴影相对应。
        
-       <img src="/Users/pengzexue/Library/Application Support/typora-user-images/image-20241029172943723.png" style="zoom:50%;" />
+       <img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241029172943723.png" style="zoom:50%;" />
        
        - **监督学习方法：**引入了各种先验来约束反射率和照度，本征图像分解是基于物理的，并不适用于高级视觉任务。同时现有的数据集要么是由一小部分人工绘制的物体、合成物体或场景或人工注释创建的。虽然效果好，但需要大量标注数据；同时数据集要么太小，要么离自然图像太远，有较大的泛化误差（换一组数据就不行了），限制了监督学习的性能。现有数据集（如MIT Intrinsic）数据少，难以获取真实反射率和阴影。
        
-         <img src="/Users/pengzexue/Library/Application Support/typora-user-images/image-20241029173431007.png" style="zoom:55%;" />
+         <img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241029173431007.png" style="zoom:55%;" />
        
        - **半监督学习方法**：Janner等人提出了一种自监督的本征图像分解法，该方法利用少量有标记的数据和其他信息（如物体形状和光照），并将其应用于无标记数据。InverseRenderNet则使用相关图像作为输入，并通过多视角立体图像提供监督信号。
        
