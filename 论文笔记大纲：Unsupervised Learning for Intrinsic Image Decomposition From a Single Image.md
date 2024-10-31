@@ -1,4 +1,4 @@
-# 文献解读大纲：Unsupervised Learning for Intrinsic Image Decomposition From a Single Image
+# 论文笔记大纲：Unsupervised Learning for Intrinsic Image Decomposition From a Single Image
 
 ```
 【题目】：Unsupervised Learning for Intrinsic Image Decomposition From a Single Image
