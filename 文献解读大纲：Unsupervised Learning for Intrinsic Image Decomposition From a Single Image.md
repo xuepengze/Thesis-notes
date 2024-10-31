@@ -175,11 +175,11 @@ $$
 
   #### **网络结构：**
 
-  <img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031103854759.png" style="zoom:50%;" />
+  <img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031103854759.png" style="zoom:50%;" />
 
  ### **1.领域不变：**
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031103734536.png" style="zoom:20%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031103734536.png" style="zoom:20%;" />
 
   
 
@@ -219,7 +219,7 @@ $$
 
 图中的转换过程展示了无监督内在图像分解框架如何通过共享内容编码和域特定的先验编码来将自然图像分解为反射和阴影成分。这种设计确保了生成的反射和阴影图像在内容上与原图一致，同时保持域特定的风格，从而去除光照干扰。
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031103922851.png" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031103922851.png" style="zoom:50%;" />
 
    1. 首先，使用编码器 $E_I^C$ 来提取输入图像 $I_i$ 的内容码 $C$。
    2. 然后，使用 $C$ 分别通过生成器 $G_R$ 和 $G_S$ 生成分解层 $R(I_i)$ 和 $S(I_i)$。
@@ -261,19 +261,19 @@ $$
 
    物理上，反射率是对照度和方向的不变性，而照度是方差。因此，为了分解反射率和照度这两个成分，假设它们的条件先验是独立的，可以分别学习。反射率的潜在先验表示为$z_R$∈$Z_R$，可以从反射率域和自然像域进行编码。照度的潜在先验表示为$z_S$∈$Z_S$，可以从照度域和自然像域进行编码。图中红色箭头表示的部分。
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031104123464.png" style="zoom:44%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031104123464.png" style="zoom:44%;" />
 
  
 
    #### 匹配模块（M 模块）
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031104643078.png" style="zoom:44%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031104643078.png" style="zoom:44%;" />
 
 
 
    在图像分解任务中，我们设计了一个 **映射模块 (M 模块)** 来帮助从输入图像 $I_i$ 中提取两个独立的先验编码：**反射编码** $z_{R(I_i)}$ 和 **阴影编码** $z_{S(I_i)}$。这个模块通过先提取图像的自然先验编码 $z_{I_i}$，然后使用一个映射函数 $f_{dcp}$ 将其分解成反射和阴影的编码。
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031104734963.png" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031104734963.png" style="zoom:33%;" />
 
    为了确保反射编码 $z_{R(I_i)}$ 和阴影编码 $z_{S(I_i)}$ 分别符合各自的先验域 $Z_R$ 和 $Z_S$，我们使用了一种称为 **Kullback-Leibler 散度 (KLD)** 的损失函数。这种损失函数帮助模型生成符合真实反射和阴影特性的编码。
 
@@ -297,7 +297,7 @@ $$
 
    通过最小化 $\mathcal{L}^{KL}_t$，模型可以将生成的编码约束在对应的真实先验域上，从而确保反射和阴影的特征符合真实数据的分布。
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031104820177.png" style="zoom:44%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031104820177.png" style="zoom:44%;" />
 
    分两种情况：
 
@@ -311,7 +311,7 @@ $$
 
    虽然交叉熵包含了分布  p  和  q  之间的信息，但它本质上还包含了  p  本身的熵  H(p) ，因此无法独立表示  p  和  q  之间的差异。（我们无法判断得出的结果是否为最小值，当减去H(p)时我们可以更直观的通过散度接近0或1来判断q和p的差异，接近0时差异最小）
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031104852350.png" style="zoom:44%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031104852350.png" style="zoom:44%;" />
 
   ### **3.**编码器的可逆性
 
@@ -327,11 +327,11 @@ $$
    该过程关注特定图层（如反射率或阴影）的独立特征。
    每个图层（反射率或阴影）都有各自的风格隐空间，用来捕捉与光照相关或不相关的特定风格信息，从而实现图层的分离和保留特性。
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031104930650.png" style="zoom:44%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031104930650.png" style="zoom:44%;" />
 
    将图像样式从编码器（实线箭头）转移到生成器（虚线箭头）。
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031105006671.png" style="zoom:66%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031105006671.png" style="zoom:66%;" />
 
 图像重构损失:
 
@@ -448,16 +448,16 @@ $$
 ### 1. ShapeNet 数据集实验
 
   定量结果：在 ShapeNet 数据集上，作者使用 MSE（均方误差）和 LMSE（局部均方误差）作为评价指标。在表格中，最终模型的 MSE 和 LMSE 分数显著优于其他方法。相比 WH18、FY18 等无监督方法，作者的模型在反射率和阴影的分解上表现更出色。
-	<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031105304961.png" style="zoom:50%;" />
+	<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031105304961.png" style="zoom:50%;" />
 图 5 展示了 ShapeNet 数据集上的视觉对比结果。可以看到，WH18 等方法在分解时有明显的细节丢失，而作者的模型能够保留更多的细节信息，比如车辆的纹理和阴影的边界更清晰。
 
 ### 2. MPI-Sintel 基准实验
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031105332250.png" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031105332250.png" style="zoom:50%;" />
 
 定量结果：在 MPI-Sintel 基准数据集上，作者采用 MSE、LMSE 和 DSSIM（结构相似度的反向指标）作为评价标准。表 2 中显示，该方法的平均误差在所有无监督方法中最低，且接近有监督方法 MSCR。
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031105449281.png" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031105449281.png" style="zoom:50%;" />
 
 图 7 展示了 MPI-Sintel 数据集上的分解结果，与 LS18、MSCR 等方法相比，作者的模型生成的反射率和阴影图层更清晰、准确，阴影部分的光照变化被捕捉得更好。
 
@@ -465,7 +465,7 @@ $$
 
 定量结果：在 MIT 内在数据集上，作者的方法在反射率和阴影的 MSE 指标上表现最好，尤其在阴影分解上明显优于 WH18 和 Retinex 等传统方法。
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031105630793.png" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031105630793.png" style="zoom:50%;" />
 
 图 8 显示了 MIT 数据集的结果，与 MSCR 等有监督方法相比，作者的方法在反射率图层中表现了更好的材质一致性，阴影图层的光照分布也更自然。		
 
@@ -473,26 +473,26 @@ $$
 
 定量结果：在 IIW 数据集上，作者采用 WHDR（加权人类不一致率）作为评价指标，分数越低表示结果越接近人类主观判断。表 4 显示，作者的方法 WHDR 分数达到了 18.69%，在无监督方法中表现最优，且接近有监督方法 FY18 的 14.45%。
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031105727767.png" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031105727767.png" style="zoom:50%;" />
 
 
 图 9 展示了 IIW 数据集的分解效果。可以看到，作者的方法生成的反射率图层平滑且一致，而阴影图层则保留了更自然的光照效果，明显优于 LS18 和 MUNIT 等无监督方法。
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031105754574.png" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031105754574.png" style="zoom:50%;" />
 
 图 6 显示，即使只使用了较少的训练样本（如 20% 的数据），该方法依然能够取得优于其他方法的分解效果。
 这表明该方法在样本量较少的情况下依然具有较强的泛化能力和数据效率。
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031105847674.png" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031105847674.png" style="zoom:50%;" />
 
 ### 5. 消融实验
 
 定量结果：表 1 展示了在 ShapeNet 数据集上进行的消融实验结果。移除映射模块、内容一致性损失$L_{cnt}$和物理一致性损失$L_{phy}$后，模型的 MSE 和 LMSE 分数都有所上升，尤其是移除内容一致性损失后，细节表现明显变差。
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031105935905.png" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031105935905.png" style="zoom:50%;" />
 
 图 5 的消融实验结果列展示了去除不同模块的影响。例如，去除映射模块后，分解出的反射率和阴影在一些区域变得不准确；去除$L_{cnt}$后，阴影图层的细节丢失；去除$L_{phy}$后，虽然阴影效果看起来还可以，但在某些区域仍有错误。
 
-<img src="/Users/pengzexue/Desktop/研一/神经网络/image-20241031110105195.png" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/xuepengze/Thesis-notes/main/images/image-20241031110105195.png" style="zoom:50%;" />
 
 通过这些实验，作者证明了其无监督方法的有效性和优越性。其方法在多个数据集上表现优异，尤其在 ShapeNet 和 MPI-Sintel 数据集上获得了低误差分数，同时消融实验也展示了各个模块对模型性能的重要性，特别是内容一致性损失和物理一致性损失对细节分解的帮助很大。
